@@ -23,16 +23,19 @@ def main():
             if event.type == pg.QUIT: return
 
         key_lst = pg.key.get_pressed() #練習10-3：キーの押下状態の取得
-        print(key_lst[pg.K_UP], key_lst[pg.K_DOWN], key_lst[pg.K_LEFT], key_lst[pg.K_RIGHT])
+         #print(key_lst[pg.K_UP], key_lst[pg.K_DOWN], key_lst[pg.K_LEFT], key_lst[pg.K_RIGHT])
         if key_lst[pg.K_UP]: #練習10-4：上に移動する
-            kk_rct.move_ip((0, -1))
+            #kk_rct.move_ip((0, -1))
+            kk_rct.centery += -1
         if key_lst[pg.K_DOWN]: #練習10-4：下に移動する
-            kk_rct.move_ip((0, 1))
+            #kk_rct.move_ip((0, 1))
+            kk_rct.centery += 1
         if key_lst[pg.K_LEFT]: #練習10-4：左に移動する
-            kk_rct.move_ip((-1, 0))
+            #kk_rct.move_ip((-1, 0))
+            kk_rct.centerx += -1
         if key_lst[pg.K_RIGHT]: #練習10-4：右に移動する
-            kk_rct.move_ip((2, 0)) #演習1-2：右を押す場合はこうかとんが右に移動する
- 
+            #kk_rct.move_ip((2, 0)) #演習1-2：右を押す場合はこうかとんが右に移動する
+            kk_rct.centerx += 2
             
         x = tmr%3200 #練習9：背景のループ
         kk_rct.move_ip((-1,0)) #演習1-1：こうかとんが風に流される

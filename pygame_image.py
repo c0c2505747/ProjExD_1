@@ -31,8 +31,11 @@ def main():
         if key_lst[pg.K_LEFT]: #練習10-4：左に移動する
             kk_rct.move_ip((-1, 0))
         if key_lst[pg.K_RIGHT]: #練習10-4：右に移動する
-            kk_rct.move_ip((1, 0))
+            kk_rct.move_ip((2, 0)) #演習1-2：右を押す場合はこうかとんが右に移動する
+ 
+            
         x = tmr%3200 #練習9：背景のループ
+        kk_rct.move_ip((-1,0)) #演習1-1：こうかとんが風に流される
         screen.blit(bg_img, [-x, 0]) #練習5：背景画像を右から左に
         screen.blit(bg_img2, [-x +1600, 0])  #練習7：背景画像をもう一度
         screen.blit(bg_img2, [-x +3200, 0])  #練習9：背景のループ

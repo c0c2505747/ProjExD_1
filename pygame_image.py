@@ -11,17 +11,22 @@ def main():
     clock  = pg.time.Clock()
     bg_img = pg.image.load("fig/pg_bg.jpg")
     kk_img = pg.image.load("fig/3.png") #練習3：こうかとん画像Surfaceの作成
+    bg_img2 = pg.transform.flip(bg_img, True, False)  #練習8：2枚目の背景画像を反転
     kk_img = pg.transform.flip(kk_img, True, False) #練習3：こうかとん画像反転
     tmr = 0
+
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: return
 
-        screen.blit(bg_img, [0, 0])
+        x = tmr%3200 #練習9：背景のループ
+        screen.blit(bg_img, [-x, 0]) #練習5：背景画像を右から左に
+        screen.blit(bg_img2, [-x +1600, 0])  #練習7：背景画像をもう一度
+        screen.blit(bg_img2, [-x +3200, 0])  #練習9：背景のループ
         screen.blit(kk_img, [300, 200]) #練習4：こうかとんSurfaceを貼り付け
         pg.display.update()
         tmr += 1        
-        clock.tick(10)
+        clock.tick(200) #練習6：FPS変更
 
 
 if __name__ == "__main__":
